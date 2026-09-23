@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Nexytic</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #444444;
+            --text-light: #888888;
+            --border-color: rgba(0, 0, 0, 0.12);
+            --bg-card: #212121;
+        }
+
+        /* Dark mode overrides for bg-card sections */
+        .services-overview,
+        .package-card,
+        .process-card,
+        .why-choose-us,
+        .step-card,
+        .contact-info,
+        .values-section {
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+        }
+
+        .service-card,
+        .why-card,
+        .value-card,
+        .featured-hosting-notice {
+            --text-primary: #0a0a0a;
+            --text-secondary: #444444;
+        }
+        
+        .service-icon, .feature-icon, .value-icon {
+            color: #ffffff !important;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography Classes */
+        .font-display {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .font-handwriting {
+            font-family: 'Caveat', cursive;
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            list-style: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.4;
+        }
+
+        .preorder-btn {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem 2rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        @media (hover: hover) {
+                    .preorder-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+        }
+
+        
+        /* Back Navigation */
+        .back-nav-container {
+            padding: 9rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.65rem 1.4rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            transform: translateX(-4px);
+        }
+
+        .back-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* Hero Header Section */
+        .hero-header {
+            min-height: 50vh;
+            padding: 12rem 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-title {
+            font-size: 7vw;
+            line-height: 0.9;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 3vw;
+            color: var(--text-secondary);
+            transform: rotate(-1.5deg);
+        }
+
+        /* Services Overview Section */
+        .services-overview {
+            padding: 8rem 4rem;
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .services-title {
+            font-size: 5rem;
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+
+        .services-subtitle {
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+            transform: rotate(-1.5deg);
+            display: inline-block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border-color: var(--text-primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--text-primary);
+            color: var(--bg-color);
+            border-color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .service-name {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            margin-top: auto;
+        }
+
+        .service-features li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-features li::before {
+            content: '\2713'; /* Unicode checkmark */
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-title {
+                font-size: 4rem;
+            }
+            .services-overview {
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* Packages Grid Section */
+        .packages-section {
+            padding: 8rem 4rem;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .package-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Make popular card stand out slightly */
+        .package-card.popular {
+            border-color: var(--text-primary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            transform: rotate(6deg);
+            user-select: none;
+        }
+
+        .package-num {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .package-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .package-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            min-height: 2.5rem;
+        }
+
+        .package-price-box {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1;
+            color: var(--text-primary);
+        }
+
+        .package-price-period {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .package-divider {
+            height: 1px;
+            background-color: var(--border-color);
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .package-features svg {
+            flex-shrink: 0;
+            color: var(--text-primary);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .package-btn {
+            width: 100%;
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid var(--border-color);
+            padding: 0.9rem;
+            border-radius: 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        @media (hover: hover) {
+                    .package-btn:hover {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+        }
+
+        .package-card.popular .package-btn {
+            background: #ffffff;
+            color: #000000;
+            border-color: #000000;
+        }
+
+        @media (hover: hover) {
+        .package-card.popular .package-btn:hover {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+    }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 8rem 4rem;
+            background: var(--bg-color);
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-heading {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .faq-sub {
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 6rem;
+            transform: rotate(-1.5deg);
+            display: inline-block;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem 3rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: relative;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 3rem 0 1.5rem;
+            overflow: hidden;
+            margin-top: 5rem;
+        }
+
+        .footer-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 4rem;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            font-size: 22vw;
+            line-height: 0.8;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+            letter-spacing: 0.02em;
+            margin: 0;
+            padding-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .footer-middle {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+        }
+
+        .footer-main-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-info {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+        }
+
+        .footer-info p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #aaaaaa;
+            margin-bottom: 2rem;
+        }
+
+        .footer-btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .footer-btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .footer-nav {
+            padding: 2.5rem 0;
+        }
+
+        .nav-horizontal {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-horizontal a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-horizontal a:hover {
+            color: #ffffff;
+        }
+
+        .footer-links {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0 3rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #aaaaaa;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 3rem;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            color: #666666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 8vw;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .back-nav-container {
+                padding: 7rem 2rem 1rem;
+            }
+
+            nav {
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-header {
+                padding: 10rem 2rem 4rem;
+            }
+
+            .hero-title {
+                font-size: 10vw;
+            }
+
+            .hero-subtitle {
+                font-size: 4.5vw;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                max-width: 500px;
+                width: 100%;
+            }
+
+            .packages-section {
+                padding: 6rem 2rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .faq-section {
+                padding: 6rem 2rem;
+            }
+
+            .faq-heading {
+                font-size: 4rem;
+            }
+
+            .footer-content {
+                padding: 0 2rem;
+            }
+
+            .footer-middle {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                border-left: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-left: 0;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            .footer-links ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .footer-logo {
+                font-size: 25vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faq-heading {
+                font-size: 3rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-horizontal {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        /* Estimator Section */
+        .estimator-section {
+            padding: 8rem 4rem;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .estimator-heading {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .estimator-sub {
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            transform: rotate(-1.5deg);
+            display: inline-block;
+        }
+
+        .estimator-container {
+            display: flex;
+            gap: 4rem;
+            width: 100%;
+            max-width: 1200px;
+            align-items: flex-start;
+        }
+
+        .estimator-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .est-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .est-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .est-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .est-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .est-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .est-radio {
+            cursor: pointer;
+        }
+
+        .est-radio input {
+            display: none;
+        }
+
+        .est-radio span {
+            display: block;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: var(--bg-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .est-radio input:checked + span {
+            border-color: var(--text-primary);
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .estimator-result-card {
+            width: 350px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            position: sticky;
+            top: 8rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+
+        .est-result-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .est-price-box {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .est-currency {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .est-total {
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .est-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 992px) {
+            .estimator-container {
+                flex-direction: column;
+            }
+            .estimator-result-card {
+                width: 100%;
+                position: relative;
+                top: 0;
+            }
+            .estimator-heading {
+                font-size: 4rem;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/jpeg" href="nexyticlogonlyo.jpeg">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo font-display">
+            <img src="logonew_clean.png" alt="Nexytic Logo" style="height: 45px; width: auto; border-radius: 4px; mix-blend-mode: multiply;">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="desktop-only-nav"><a href="#">Our work</a></li>
+            <li class="mobile-only-nav"><a href="contact.html" class="highlight-nav">Contact Us</a></li>
+        </ul>
+        <a href="contact.html" class="preorder-btn" style="text-decoration: none; display: inline-block; text-align: center;">Contact Us</a>
+        <button class="mobile-menu-toggle">☰</button>
+</nav>
+    <div class="back-nav-container">
+        <a href="services.html" class="back-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to All Services
+        </a>
+    </div>
+
+
+<div id="e-commerce" style="padding-top: 2rem;">
+    <div style="text-align: center; max-width: 900px; margin: 0 auto 4rem; padding: 0 2rem;">
+        <h2 class="services-title font-display" style="margin-bottom: 1.5rem;">E-Commerce Development</h2>
+        <h3 class="font-handwriting" style="font-size: 2.5rem; color: var(--text-secondary); margin-bottom: 2rem; transform: rotate(-1deg);">Turn Your Products Into a Powerful Online Store</h3>
+        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 3rem;">
+            We create modern, secure, and scalable e-commerce websites that make it easy for businesses to showcase products, manage orders, accept payments, and grow their online sales.
+        </p>
+
+        <div style="display: inline-block; padding: 1.5rem 3rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
+            <span style="font-size: 1.2rem; font-weight: 600; color: #ffffff; font-family: 'Inter', sans-serif; display: block; line-height: 1.4;">Pricing is customized based on your software requirements.</span>
+        </div>
+    </div>
+
+    <section style="padding: 4rem 2rem; max-width: 1400px; margin: 0 auto;">
+        <h3 class="font-display" style="font-size: 4rem; text-align: center; margin-bottom: 4rem; color: var(--text-primary);">What's Included</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+            <!-- Store Design -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Store Design</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Custom e-commerce UI design</li>
+                    <li>Mobile-friendly and responsive layout</li>
+                    <li>Product-focused storefront</li>
+                    <li>Easy navigation and search</li>
+                    <li>Custom product and category pages</li>
+                    <li>Shopping cart and checkout experience</li>
+                </ul>
+            </div>
+            
+            <!-- Product Management -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Product Management</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Product and category management</li>
+                    <li>Product variations and attributes</li>
+                    <li>Inventory management</li>
+                    <li>Stock availability tracking</li>
+                    <li>Product images and media</li>
+                    <li>Pricing and discount management</li>
+                </ul>
+            </div>
+
+            <!-- Customer Features -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Customer Features</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Customer registration and login</li>
+                    <li>User profiles</li>
+                    <li>Wishlist functionality</li>
+                    <li>Shopping cart</li>
+                    <li>Order history</li>
+                    <li>Product search and filtering</li>
+                    <li>Reviews and ratings</li>
+                </ul>
+            </div>
+
+            <!-- Checkout & Payments -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Checkout & Payments</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Secure checkout system</li>
+                    <li>Multiple payment options</li>
+                    <li>Payment gateway integration</li>
+                    <li>Cash-on-delivery support where applicable</li>
+                    <li>Order confirmation and notifications</li>
+                    <li>Automated invoice generation</li>
+                </ul>
+            </div>
+
+            <!-- Order Management -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Order Management</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Admin order dashboard</li>
+                    <li>Order status management</li>
+                    <li>Order tracking</li>
+                    <li>Customer order notifications</li>
+                    <li>Returns and cancellation management</li>
+                    <li>Sales and order records</li>
+                </ul>
+            </div>
+
+            <!-- Admin Panel -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Admin Panel</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Product management</li>
+                    <li>Customer management</li>
+                    <li>Order management</li>
+                    <li>Inventory controls</li>
+                    <li>Discount and coupon management</li>
+                    <li>Sales overview and reports</li>
+                    <li>Website content management</li>
+                </ul>
+            </div>
+
+            <!-- Marketing Features -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Marketing Features</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Discount and coupon codes</li>
+                    <li>Promotional banners</li>
+                    <li>Featured products</li>
+                    <li>Related product recommendations</li>
+                    <li>Promotional campaigns</li>
+                    <li>Social media integration</li>
+                    <li>SEO-friendly product pages</li>
+                </ul>
+            </div>
+
+            <!-- Security & Performance -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Security & Performance</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>SSL and secure connections</li>
+                    <li>Secure authentication</li>
+                    <li>Input and data validation</li>
+                    <li>Performance optimization</li>
+                    <li>Responsive across devices</li>
+                    <li>Basic security hardening</li>
+                </ul>
+            </div>
+
+            <!-- Deployment & Support -->
+            <div class="service-card" style="padding: 2.5rem 2rem;">
+                <h4 class="service-name" style="font-size: 1.6rem; margin-bottom: 1.5rem;">Deployment & Support</h4>
+                <ul class="service-features" style="border-top: none; padding-top: 0;">
+                    <li>Domain and hosting configuration</li>
+                    <li>Production deployment</li>
+                    <li>Database setup</li>
+                    <li>Payment gateway configuration</li>
+                    <li>Initial store setup</li>
+                    <li>Post-launch technical support</li>
+                    <li>Bug fixes and maintenance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--bg-card); padding: 8rem 2rem; margin-top: 4rem; border-top: 1px solid var(--border-color); text-align: center;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h3 class="font-display" style="font-size: 4rem; color: #ffffff; margin-bottom: 1.5rem;">Built For Your Business</h3>
+            <p style="font-size: 1.15rem; color: #e0e0e0; line-height: 1.6; margin-bottom: 4rem;">
+                Whether you're launching your first online store or moving an existing business online, we build e-commerce solutions around your products, customers, and business processes.
+            </p>
+
+            <h4 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.15em; color: #aaaaaa; margin-bottom: 2rem; font-weight: 600;">Suitable For</h4>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 5rem;">
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Retailers</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Fashion Brands</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Electronics Stores</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Restaurants</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Beauty & Lifestyle Brands</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Product Businesses</span>
+                <span style="padding: 0.75rem 1.5rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 2rem; font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">Online Startups</span>
+            </div>
+
+            <div style="padding: 4rem 2rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 1.5rem;">
+                <h3 class="font-display" style="font-size: 3rem; color: var(--text-primary); margin-bottom: 1.5rem;">More Than Just an Online Store</h3>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    We build e-commerce platforms that combine a smooth shopping experience with powerful management tools, giving you everything you need to operate and grow your online business.
+                </p>
+                <button class="package-btn" style="max-width: 250px; padding: 1.25rem;" onclick="window.location.href='contact.html?package=E-Commerce%20Development'">START YOUR PROJECT</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="faq-section">
+        <h2 class="faq-heading font-display">FAQ.</h2>
+        <span class="faq-sub font-handwriting">Common queries answered.</span>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4 class="faq-question">Can I customize my project package?</h4>
+                <p class="faq-answer">Absolutely. While our Lite and Core packages fit most standards, the Apex tier is explicitly designed for unique business configurations. We also customize aspects of Lite/Core to align with specific design goals.</p>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">What are the typical project timelines?</h4>
+                <p class="faq-answer">Startup/Lite pages usually deploy within 2-3 weeks. Growth/Core projects average 4-6 weeks depending on CMS integration and complexity. Apex systems have custom schedules based on project specs.</p>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Do you assist with hosting setup and configuration?</h4>
+                <p class="faq-answer">Yes, we provide full support setting up domains, configuring DNS rules, installing SSL certificates, and provisioning server environments as standard service options on all service setups.</p>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Is ongoing support included post-launch?</h4>
+                <p class="faq-answer">Every setup package includes a support period (1 month for Lite, 3 months for Core, lifetime critical for Apex). Additional retainer options are also available for continuous upgrades.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid-bg"></div>
+        <div class="footer-content">
+            <div class="footer-top">
+                <h1 class="footer-logo font-display">NEXYTIC</h1>
+            </div>
+
+            <div class="footer-middle">
+                <div class="footer-main-info">
+                    <div class="footer-info">
+                        <p>Elevate your digital presence with bespoke web development,<br>innovative software solutions, and<br>seamless user experiences.</p>
+                        <button class="footer-btn" onclick="window.location.href='contact.html'">Book a meeting with us <svg width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M7 17l9.2-9.2M17 17V7H7" />
+                            </svg></button>
+                    </div>
+
+                    <div class="footer-nav">
+                        <ul class="nav-horizontal">
+                            <li><a href="web-development.html">Web Development <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                                    </svg></a></li>
+                            <li><a href="software-solutions.html">Software Solutions <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                                    </svg></a></li>
+                            <li><a href="hosting-security.html">Hosting & Security <svg width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                                    </svg></a></li>
+                            <li><a href="ui-ux-design.html">UI/UX Design <svg width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                                    </svg></a></li>
+                            <li><a href="digital-marketing.html">Digital Marketing <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7" />
+                                    </svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/nexytic?igsi=ZXU3cmtzZng4YzY0&utm_source=qr" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg></a>
+                    <a href="https://www.facebook.com/share/1DaPxjsmne/?mibextid=wwXIfr" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
+                        </svg></a>
+                </div>
+                <div class="contact-info">
+                    <span>Mail : nexyticdigital@gmail.com</span>
+                    <span>Contact : +94 703232462</span>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                Nexytic &copy; 2026. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const enquireButtons = document.querySelectorAll('.package-btn');
+            enquireButtons.forEach(btn => {
+                // If it already goes to contact, modify it
+                if (btn.tagName.toLowerCase() === 'a' && btn.getAttribute('href') === 'index.html#contact') {
+                    btn.setAttribute('href', 'contact.html');
+                }
+
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    let packageCard = this.closest('.package-card');
+                    let pkgName = packageCard ? packageCard.querySelector('.package-title').innerText : '';
+                    let serviceTitleEl = document.querySelector('.services-title');
+                    let serviceName = serviceTitleEl ? serviceTitleEl.innerText.replace(' Packages', '').replace(' Packages.', '') : '';
+                    
+                    if (!pkgName && !serviceName) {
+                        let h1 = document.querySelector('h1.hero-heading');
+                        serviceName = h1 ? h1.innerText : document.title.split('|')[1]?.trim() || document.title;
+                    }
+                    
+                    let fullPackageName = pkgName ? `${serviceName} - ${pkgName}` : serviceName;
+                    window.location.href = `contact.html?package=${encodeURIComponent(fullPackageName.trim())}`;
+                });
+                
+                // Remove inline onclick if it exists so our event listener takes over
+                if (btn.hasAttribute('onclick')) {
+                    btn.removeAttribute('onclick');
+                }
+            });
+        });
+    </script>
+    <script src="mobile-menu.js"></script>
+</body>
+
+</html>
