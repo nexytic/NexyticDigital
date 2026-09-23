@@ -123,6 +123,10 @@
         max-width: 700px !important;
         padding: 0 1rem !important;
     }
+    
+    .left-info h1.font-display {
+        display: none !important;
+    }
 }
 
 /* Mobile Menu specific styles */
